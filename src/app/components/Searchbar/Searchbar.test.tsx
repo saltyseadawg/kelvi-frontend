@@ -3,12 +3,8 @@ import { render, screen } from '@testing-library/react'
 import Searchbar from './Searchbar'
 import { submitSearch } from '@/app/actions/actions'
 import { userEvent } from "@testing-library/user-event"
-// import { FormData } from 'happy-dom'
 
 vi.mock('@/app/actions/actions')
-// vi.mock("@/app/actions/actions", () => ({
-// submitSearch: vi.fn(),
-// }));
 
 describe("submitSearch", () => {
     test("Normal: Returns the user's input", async () => {
@@ -17,7 +13,7 @@ describe("submitSearch", () => {
         await userEvent.type(screen.getByLabelText("Searchbar"), "word");
         await userEvent.click(screen.getByRole("button", { name: "Search" }));
         await vi.waitFor(() =>
-            expect(submitSearch).toHaveBeenCalledOnce
+            expect(submitSearch).toHaveBeenCalledOnce()
         )
         // not sure why this isn't working
         // expect(result).toHaveBeenLastCalledWith({ query: "word" }, "", new FormData());
