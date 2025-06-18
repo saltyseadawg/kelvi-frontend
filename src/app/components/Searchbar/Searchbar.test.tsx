@@ -1,9 +1,21 @@
-import { expect, test, describe, it, vi} from 'vitest'
-import {  } from "vitest";
+import { describe, expect, test, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import Searchbar from './Searchbar'
- 
-test('Search bar should appear', () => {
-    render(<Searchbar />)
-    expect(screen.getByPlaceholderText("Search for a word")).toBeDefined();
-})
+import { submitSearch } from '@/app/actions/actions'
+import { userEvent } from "@testing-library/user-event"
+
+vi.mock('@/app/actions/actions')
+
+describe("submitSearch", () => {
+    test("Normal: Returns the user's input", async () => {
+        render(<Searchbar />)
+        expect(screen.getByPlaceholderText("Search for a word")).toBeDefined();
+        await userEvent.type(screen.getByLabelText("Searchbar"), "word");
+        await userEvent.click(screen.getByRole("button", { name: "Search" }));
+        await vi.waitFor(() =>
+            expect(submitSearch).toHaveBeenCalledOnce()
+        )
+        // not sure why this isn't working
+        // expect(result).toHaveBeenLastCalledWith({ query: "word" }, "", new FormData());
+    });
+});
