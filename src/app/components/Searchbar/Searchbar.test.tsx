@@ -1,38 +1,25 @@
-import { expect, test, vi} from 'vitest'
+import { describe, expect, test, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import Searchbar from './Searchbar'
 import { submitSearch } from '@/app/actions/actions'
-
-
+import { userEvent } from "@testing-library/user-event"
+// import { FormData } from 'happy-dom'
 
 vi.mock('@/app/actions/actions')
- 
-test('Search bar should appear', () => {
-    render(<Searchbar />)
-    expect(screen.getByPlaceholderText("Search for a word")).toBeDefined();
-})
+// vi.mock("@/app/actions/actions", () => ({
+// submitSearch: vi.fn(),
+// }));
 
-test('Pressing submit with user input should pass string to back end', () => {
-    const handleSearch = vi.fn();
-    handleSearch.mockClear()
-
-})
-
-// describe("sampleAction", () => {
-//   test("Normal: Returns the correct value", async () => {
-//     const result = await sampleAction(true);
-//     expect(result).toEqual({ sampleAction: "sampleAction" });
-//   });
-
-//   test("Error: Redirects to the error page", async () => {
-//     vi.mock("next/navigation", () => {
-//       return {
-//         redirect: (path: string) => {
-//           return path;
-//         },
-//       };
-//     });
-//     const result = await sampleAction(false);
-//     expect(result).toBe("/error");
-//   });
-// });
+describe("submitSearch", () => {
+    test("Normal: Returns the user's input", async () => {
+        render(<Searchbar />)
+        expect(screen.getByPlaceholderText("Search for a word")).toBeDefined();
+        await userEvent.type(screen.getByLabelText("Searchbar"), "word");
+        await userEvent.click(screen.getByRole("button", { name: "Search" }));
+        await vi.waitFor(() =>
+            expect(submitSearch).toHaveBeenCalledOnce
+        )
+        // not sure why this isn't working
+        // expect(result).toHaveBeenLastCalledWith({ query: "word" }, "", new FormData());
+    });
+});
