@@ -8,7 +8,7 @@ vi.mock('@/app/actions/actions')
 
 describe("submitSearch", () => {
     test("Normal: Returns the user's input", async () => {
-        render(<Searchbar />)
+        render(<Searchbar action={submitSearch}/>)
         expect(screen.getByPlaceholderText("Search for a word")).toBeDefined();
         await userEvent.type(screen.getByLabelText("Searchbar"), "word");
         await userEvent.click(screen.getByRole("button", { name: "Search" }));
