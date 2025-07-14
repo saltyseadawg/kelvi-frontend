@@ -3,8 +3,16 @@
 import { submitSearch } from "@/app/actions/actions"
 import { useActionState } from "react"
 
-export default function Searchbar() {
-    const [state, action] = useActionState(submitSearch, "")
+// export default function ClientComponent({
+//   updateItemAction,
+// }: {
+//   updateItemAction: (formData: FormData) => void
+// }) {
+//   return <form action={updateItemAction}>{/* ... */}</form>
+// }
+
+export default function Searchbar({action}) {
+    // const [state, action] = useActionState(submitSearch, "")
     return (
         <div>
             <form className="flex items-center max-w-lg mx-auto" action={action}>
