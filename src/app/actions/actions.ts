@@ -1,7 +1,8 @@
 "use server";
 
 export async function submitSearch(previousState: string, formData: FormData){
-    const query = formData.get("query") as string
+    const query = formData.get("user_input") as string
+    
     const response = await fetch(
         `http://127.0.0.1:8000/word/${query}`, {
             method: 'GET',

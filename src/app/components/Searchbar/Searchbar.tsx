@@ -1,12 +1,17 @@
 
+'use client';
 // not sure how to type action???
+
+
+import { useSearchParams, usePathname, useRouter } from "next/navigation";
 export default function Searchbar({action}) {
+
     return (
         <div>
             <form className="flex items-center max-w-lg mx-auto" action={action}>
                 <label htmlFor="search-input" className="sr-only">Searchbar</label>
                 <div className="relative w-full">
-                    <input type="text" id="search-input" name="query" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for a word" required />
+                    <input type="text" id="search-input" name="user_input" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for a word" required />
                     <div className="absolute inset-y-0 end-0 flex items-center pe-3">
                         <button type="button" id="tamil-btn">
                             <svg className="w-4 h-4 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 200 200">
