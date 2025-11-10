@@ -8,7 +8,8 @@ const notoSans = Noto_Sans({
 });
 
 const notoSansTamil = Noto_Sans_Tamil({
-  variable: "--font-noto-sans-tamil"
+  variable: "--font-noto-sans-tamil",
+  subsets: ["tamil"]
 });
 
 export const metadata: Metadata = {
