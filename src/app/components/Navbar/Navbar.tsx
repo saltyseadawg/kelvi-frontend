@@ -1,10 +1,15 @@
+'use client';
+
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'About', href: '#', current: false },
-  { name: 'Contact Us', href: '#', current: false },
+  { name: 'Home', href: '/', current: true },
+  { name: 'About', href: '/about', current: false },
+  { name: 'Contact Us', href: '/contact', current: false },
 ]
 
 function classNames(...classes: string[]) {
@@ -12,6 +17,8 @@ function classNames(...classes: string[]) {
 }
 
 export default function Navbar() {
+  const pathname = usePathname()
+
   return (
     <Disclosure as="nav" className="bg-[#F2AA45]">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -35,41 +42,51 @@ export default function Navbar() {
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
-                {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    aria-current={item.current ? 'page' : undefined}
-                    className={classNames(
-                      item.current ? 'bg-[#F08D49] text-white' : 'text-[#F9FBFD] hover:bg-[#F6C974] hover:text-white',
-                      'rounded-md px-3 py-2 text-sm font-medium font-sans',
-                    )}
-                  >
-                    {item.name}
-                  </a>
-                ))}
+                {navigation.map((item) => {
+                  const isCurrent = item.href === pathname
+                  return (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      aria-current={isCurrent ? 'page' : undefined}
+                      className={classNames(
+                        isCurrent
+                          ? 'bg-[#F08D49] text-white'
+                          : 'text-[#F9FBFD] hover:bg-[#F6C974] hover:text-white',
+                        'rounded-md px-3 py-2 text-sm font-medium font-sans'
+                      )}
+                    >
+                      {item.name}
+                    </Link>
+                  )
+                })}
               </div>
             </div>
           </div>
         </div>
       </div>
-
+      {/*Mobile settings*/}
       <DisclosurePanel className="sm:hidden">
         <div className="space-y-1 px-2 pt-2 pb-3">
-          {navigation.map((item) => (
-            <DisclosureButton
-              key={item.name}
-              as="a"
-              href={item.href}
-              aria-current={item.current ? 'page' : undefined}
-              className={classNames(
-                item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                'block rounded-md px-3 py-2 text-base font-medium',
-              )}
-            >
-              {item.name}
-            </DisclosureButton>
-          ))}
+          {navigation.map((item) => {
+            const isCurrent = item.href === pathname
+            return (
+              <DisclosureButton
+                key={item.name}
+                as={Link}
+                href={item.href}
+                aria-current={isCurrent ? 'page' : undefined}
+                className={classNames(
+                  isCurrent
+                    ? 'bg-gray-900 text-white'
+                    : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                  'block rounded-md px-3 py-2 text-base font-medium'
+                )}
+              >
+                {item.name}
+              </DisclosureButton>
+            )
+          })}
         </div>
       </DisclosurePanel>
     </Disclosure>
