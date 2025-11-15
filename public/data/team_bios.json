@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Shankhalika Srikanth",
+        "pronouns": "she/her",
+        "role": "Linguist, Co-Founder",
+        "description": "Shankhalika is a Tamil-Canadian linguist living on the land of the Wendat, Anishinaabek, and Haudenosaunee peoples. Independently and in collaboration with Sabrina Yu, she has worked with several minority language organizations to help develop language curriculum and educational materials. The seeds for Kelvi were sparked by Shankhalika's own experiences as a heritage Tamil learner and teacher.",
+        "website":"https://github.com/shankhalika-katya",
+        "img": "https://drive.google.com/thumbnail?id=1cBD_DaJopUsRrEMl7j_JXPH_cLnCQ-K-&sz=s800"
+    },
+    {
+        "name": "Sabrina Yu",
+        "role": "Lead Developer, Co-Founder",
+        "description": "Sabrina is a Chinese-Canadian software developer and data engineer. Whereas Shankhalika is the linguistic “brains” of the team, Sabrina provides the computational “brawn” to turn their ideas into code. A jack of many trades, she has worked with different language groups as a programmer, content creator, and UX researcher depending on the need.",
+        "website": "https://github.com/saltyseadawg",
+        "img": "https://drive.google.com/thumbnail?id=15NVceUtz455Wps1uxdxXWJS5Swcy1Gqr&sz=s800"
+    },
+    {
+        "name": "Madeline Solis de Ovando",
+        "role": "Designer",
+        "website": "https://maddiesoliss.com/",
+        "img": "https://drive.google.com/thumbnail?id=1fyMz3NWNYM-zClMGLHd3JSny7P9cmafV&sz=s800"
+    }, 
+    {
+        "name": "Sophia Chan",
+        "role": "Developer",
+        "website": "https://www.linkedin.com/in/sophia-mw-chan/",
+        "img": "https://drive.google.com/thumbnail?id=1JANCECclD6piCBUT1f9kzw79m0Hq019h&sz=s800"
+    }
+]
