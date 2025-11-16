@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
-import { Noto_Sans, Noto_Sans_Tamil } from "next/font/google";
+import { Noto_Sans, Noto_Sans_Tamil, Noto_Serif } from "next/font/google";
 import "./globals.css";
+
+const notoSerif = Noto_Serif({
+  variable: "--font-noto-serif",
+  subsets: ["latin"],
+})
 
 const notoSans = Noto_Sans({
   variable: "--font-noto-sans",
@@ -25,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${notoSans.variable} ${notoSansTamil.variable} antialiased`}
+        className={`${notoSans.variable} ${notoSansTamil.variable} ${notoSerif.variable} antialiased`}
       >
         {children}
       </body>
