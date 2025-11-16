@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Navbar from "./components/Navbar/Navbar";
 import Searchbar from "./components/Searchbar/Searchbar";
 import WordPage from "./pages/WordPage/WordPage";
