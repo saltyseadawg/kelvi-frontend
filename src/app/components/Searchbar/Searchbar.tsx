@@ -10,7 +10,7 @@ export default function Searchbar({action}) {
             <form className="flex items-center max-w-lg mx-auto" action={action}>
                 <label htmlFor="search-input" className="sr-only">Searchbar</label>
                 <div className="relative w-full">
-                    <input type="text" id="search-input" name="user_input" className="border border-gray-300 text-gray-900 text-sm font-sans rounded-lg focus:ring-[#5598DA] focus:border-[#5598DA] block w-full ps-10 p-2.5" placeholder="Search for a word" required />
+                    <input type="text" id="search-input" name="user_input" className="border border-gray-300 text-gray-900 text-sm font-sans rounded-lg focus:ring-[#5098DA] focus:border-[#5098DA] block w-full ps-10 p-2.5" placeholder="Search for a word" required />
                     {/* <div className="absolute inset-y-0 end-0 flex items-center pe-3">
                         <button type="button" id="tamil-btn">
                             <svg className="w-4 h-4 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 200 200">
@@ -20,7 +20,7 @@ export default function Searchbar({action}) {
                     </div> */}
                 </div>
                 <label htmlFor="submit-btn" className="sr-only">Search</label>
-                <button type="submit" id="submit-btn" className="inline-flex items-center py-2.5 px-3 ms-2 text-sm font-sans font-medium text-[#F9FBFD] bg-[#73ADE1] rounded-lg border border-[#73ADE1] hover:bg-[#8FBDE7] focus:ring-4 focus:outline-none focus:ring-[#5598DA]">
+                <button type="submit" id="submit-btn" className="inline-flex items-center py-2.5 px-3 ms-2 text-sm font-sans font-medium text-default-white bg-[#73ADE1] rounded-lg border border-[#73ADE1] hover:bg-[#5098DA] focus:ring-4 focus:outline-none focus:ring-[#5098DA]">
                     <svg className="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                         <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                     </svg>Search
