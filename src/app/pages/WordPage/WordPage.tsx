@@ -1,15 +1,9 @@
 'use client';
 
-import React from "react";
 import styles from './WordPage.module.css'
 
 
 export default function WordPage({data}) {
-    const [isVisible, setVisible] = React.useState();
-
-    function toggle(){
-      setVisible(!isVisible);
-    }
 
     if (data.detail){
         return (
@@ -46,7 +40,12 @@ function ListDefinitions({ items }) {
 }
 
 function Gloss({ data }){
-  return(
+  if (data.user_input === data.root.tamil){
+    return (
+      <></>
+    )
+  } else {
+    return(
     <table className="table-auto border-separate border-spacing-y-1 border-spacing-x-2">
       <tbody className="text-lg font-normal">
         <tr className="font-sans-tamil">
@@ -62,4 +61,6 @@ function Gloss({ data }){
       </tbody>
     </table>
   );
+  }
+  
 }

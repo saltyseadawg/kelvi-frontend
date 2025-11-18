@@ -3,7 +3,6 @@
 // not sure how to type action???
 
 
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
 export default function Searchbar({action}) {
 
     return (
