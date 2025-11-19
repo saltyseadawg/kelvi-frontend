@@ -2,6 +2,7 @@ import Image from 'next/image'
 
 import biosJson from '../../../public/data/team_bios.json'
 import Navbar from "../components/Navbar/Navbar"
+import Footer from '../components/Footer/Footer'
 
 export default function About() {
     return (
@@ -21,6 +22,8 @@ export default function About() {
                     })}
                 </div>
             </main>
+            <Footer></Footer>
+            
         </div>
     )
 }
