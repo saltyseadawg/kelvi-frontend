@@ -9,7 +9,7 @@ export default function Searchbar({action}) {
             <form className="flex items-center max-w-lg mx-auto" action={action}>
                 <label htmlFor="search-input" className="sr-only">Searchbar</label>
                 <div className="relative w-full">
-                    <input type="text" id="search-input" name="user_input" className="border border-gray-300 text-gray-900 text-sm font-sans rounded-lg focus:ring-[#5098DA] focus:border-[#5098DA] block w-full ps-10 p-2.5" placeholder="Search for a word" required />
+                    <input type="text" id="search-input" name="user_input" className="border border-gray-300 text-gray-900 text-sm font-sans rounded-lg focus:ring-[#5098DA] focus:border-[#5098DA] block w-full ps-5 p-2.5" placeholder="Search a Tamil word" required />
                     {/* <div className="absolute inset-y-0 end-0 flex items-center pe-3">
                         <button type="button" id="tamil-btn">
                             <svg className="w-4 h-4 text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 200 200">
