@@ -8,6 +8,7 @@
 @theme {
   --color-default-black: #2B2B2B;
   --color-default-white: #F9FBFD;
+  --color-pale-orange: #FAE5BB;
 }
 
 @theme inline {
