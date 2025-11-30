@@ -15,7 +15,9 @@ export default function WordPage({data}) {
     else {
         return (
         <div className={styles.wordpage}>
-            <h1 className="pt-2 pb-2 text-xl text-default-black font-sans-tamil">{data.user_input}</h1>
+            <h1 className="pt-2 text-xl text-default-black font-sans-tamil">{data.user_input}</h1>
+            <h1 className="pb-4 text-xl text-default-black font-sans">{data.romanization}</h1>
+            <hr></hr>
             <Gloss data={data}/>
             <hr></hr>
             <h2 className="indent-2 min-h-0 pt-4 pb-2 text-lg text-default-black font-sans-tamil">{data.root.tamil}</h2>
@@ -46,17 +48,22 @@ function Gloss({ data }){
     )
   } else {
     return(
-    <table className="table-auto border-separate border-spacing-y-1 border-spacing-x-2">
+    <table className="table-auto border-collapse">
       <tbody className="text-lg font-normal">
         <tr className="justify-start font-sans-tamil">
-          <th className="font-bold">{data.root.tamil}</th>
-          <th className="font-bold">+</th>
-          <th className="font-bold">{data.suffixal_material.text}</th>
+          <th className="font-bold bg-pale-orange">{data.root.tamil}</th>
+          <th className="font-bold w-[2rem]">+</th>
+          <th className="font-bold bg-pale-orange">{data.suffixal_material.text}</th>
         </tr>
         <tr className="font-sans">
+          <th className="bg-pale-orange">{data.root.romanization}</th>
           <th></th>
+          <th className="font-bold bg-pale-orange">{data.suffixal_material.romanization}</th>
+        </tr>
+        <tr className="font-sans">
+          <th className="bg-pale-orange"></th>
           <th></th>
-          <th className="font-bold">{data.suffixal_material.gloss}</th>
+          <th className="bg-pale-orange">{data.suffixal_material.gloss}</th>
         </tr>
       </tbody>
     </table>
