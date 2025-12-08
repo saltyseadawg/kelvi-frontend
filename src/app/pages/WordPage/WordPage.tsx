@@ -59,7 +59,7 @@ function Romanization({ data }){
         <tr className="justify-start font-sans-tamil">
           <th className="font-bold bg-pale-orange">{data.root.tamil}</th>
           <th className="font-bold w-[2rem]">+</th>
-          <th className="font-bold bg-pale-orange">{data.suffixal_material.text}</th>
+          <th className="font-bold bg-pale-orange">{data.suffixal_material.display}</th>
         </tr>
         <tr className="font-sans">
           <th className="bg-pale-orange">{data.root.romanization}</th>
