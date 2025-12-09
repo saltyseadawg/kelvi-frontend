@@ -4,7 +4,6 @@ import styles from './WordPage.module.css'
 
 
 export default function WordPage({data}) {
-
     if (data.detail){
         return (
           <h2 className="font-sans">Word not found (இ﹏இ`｡)</h2>
@@ -18,16 +17,23 @@ export default function WordPage({data}) {
             <h1 className="pt-2 text-xl text-default-black font-sans-tamil">{data.user_input}</h1>
             <h1 className="pb-4 text-xl text-default-black font-sans">{data.romanization}</h1>
             <hr></hr>
-            <Gloss data={data}/>
+            <Romanization data={data}/>
             <hr></hr>
-            <h2 className="indent-2 min-h-0 pt-4 pb-2 text-lg text-default-black font-sans-tamil">{data.root.tamil}</h2>
+            <h2 className="indent-2 min-h-0 pt-4 pb-2 text-lg text-default-black font-sans-tamil">
+              {data.root.tamil} ({data.root.romanization})
+            </h2>
             <ListDefinitions items={data.root_definition}/>
+            <h2 className="indent-2 min-h-0 pt-4 pb-2 text-lg text-default-black font-sans-tamil">
+              {data.suffixal_material.text} ({data.suffixal_material.romanization})
+            </h2>
+            <Gloss data={data}/>
         </div>
         )
     }
 }
 
 function ListDefinitions({ items }) {
+  
   return (
     <ol className="list-decimal list-inside space-y-2 text-balance min-h-0 text-base text-default-black font-sans">
       {items.map((entry, index) => (
@@ -41,7 +47,7 @@ function ListDefinitions({ items }) {
   );
 }
 
-function Gloss({ data }){
+function Romanization({ data }){
   if (data.user_input === data.root.tamil){
     return (
       <></>
@@ -60,14 +66,17 @@ function Gloss({ data }){
           <th></th>
           <th className="font-bold bg-pale-orange">{data.suffixal_material.romanization}</th>
         </tr>
-        <tr className="font-sans">
-          <th className="bg-pale-orange"></th>
-          <th></th>
-          <th className="bg-pale-orange">{data.suffixal_material.gloss}</th>
-        </tr>
       </tbody>
     </table>
   );
   }
   
 }
+
+function Gloss({data}){
+    return(
+      <pre className="space-y-2 text-balance min-h-0 text-base text-default-black font-sans">
+        &emsp;&emsp;{data.suffixal_material.gloss}
+      </pre>
+    );
+  }
