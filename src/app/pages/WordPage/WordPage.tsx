@@ -4,8 +4,6 @@ import styles from './WordPage.module.css'
 
 
 export default function WordPage({data}) {
-    console.log("data")
-    console.log(data)
     if (data.detail){
         return (
           <h2 className="font-sans">Word not found (இ﹏இ`｡)</h2>
