@@ -26,14 +26,14 @@ export default function WordPage({ data }) {
         <h2 className="min-h-0 pt-4 pb-2 text-lg text-default-black font-sans-tamil">
           {data.root.tamil} {root_roman}
         </h2>
-        <ListDefinitions items={data.root_definition} />
+        <ListRootDefinitions items={data.root_definition} />
         <Gloss data={data} />
       </div>
     )
   }
 }
 
-function ListDefinitions({ items }) {
+function ListRootDefinitions({ items }) {
 
   return (
     <ol className="ml-[1em] list-decimal list-inside space-y-2 text-balance min-h-0 text-base text-default-black font-sans">
@@ -74,6 +74,23 @@ function Romanization({ data }) {
 
 }
 
+function ListGlosses({ data }) {
+  return (
+    <ol className="ml-[1em] list-decimal list-inside space-y-2 text-balance min-h-0 text-base text-default-black font-sans">
+      {data?.length ? (
+        data.map((definition, index) => (
+          <li key={index} className="pb-2">
+            {definition}
+          </li>
+        ))
+      ) : (
+        <li>No definition available</li>
+      )}
+    </ol>
+  );
+}
+
+
 function Gloss({ data }) {
   if (!data.suffixal_material){
     return(
@@ -88,7 +105,7 @@ function Gloss({ data }) {
       <h2 className="min-h-0 pt-4 pb-2 text-lg text-default-black font-sans-tamil">
         {data.suffixal_material.display} {gloss_roman}
       </h2>
-      <pre className="ml-[1em] space-y-2 text-balance min-h-0 text-base text-default-black font-sans">1. {data.suffixal_material.gloss}</pre>
+      <ListGlosses data={data.suffixal_material.gloss}/>
     </div>
   );
   }
