@@ -4,14 +4,39 @@ import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
 import Searchbar from "./components/Searchbar/Searchbar";
 import WordPage from "./pages/WordPage/WordPage";
-import { useActionState } from "react"
+import { useActionState, useEffect, startTransition } from "react"
 import { submitSearch } from "./actions/actions"
-
+import { useRouter, usePathname, useSearchParams } from "next/navigation"
 
 
 export default function Home() {
   const [data, setData] = useActionState(submitSearch, { user_input: ''});
   console.log(data)
+
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
+  // Redirect to URL with query param when data.user_input changes
+  useEffect(() => {
+    if (searchParams) {
+      const params = new URLSearchParams(searchParams.toString())
+      params.set('query', data.user_input)
+      router.replace(`${pathname}?${params.toString()}`, { scroll: false })
+    }
+  }, [data.user_input, pathname])
+
+  // Check for query param and set data accordingly
+  useEffect(() => {
+    if (searchParams) {
+      const query = searchParams.get('query')
+      if (query && data.user_input === '') {
+        const formData = new FormData();
+        formData.append('user_input', query);
+        startTransition(() => setData(formData))
+      }
+    }
+  }, [searchParams, data.user_input])
 
   return (
     <div>
