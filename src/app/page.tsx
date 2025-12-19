@@ -4,17 +4,15 @@ import Footer from "./components/Footer/Footer";
 import Navbar from "./components/Navbar/Navbar";
 import Searchbar from "./components/Searchbar/Searchbar";
 import WordPage from "./pages/WordPage/WordPage";
-import { useActionState, useEffect, startTransition, useRef } from "react"
+import { useActionState, useEffect, startTransition, useRef, Suspense } from "react"
 import { submitSearch } from "./actions/actions"
 import { useRouter, usePathname, useSearchParams } from "next/navigation"
 
-
-export default function Home() {
+function HomeContent() {
   const [data, setData] = useActionState(submitSearch, { user_input: ''});
   console.log(data)
 
   const hasLoaded = useRef(false)
-
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -31,7 +29,7 @@ export default function Home() {
       const queryString = params.toString()
       router.replace(queryString ? `${pathname}?${queryString}` : pathname, { scroll: false })
     }
-  }, [data.user_input, pathname])
+  }, [data.user_input, pathname, router, searchParams])
 
   // Check for query param and set data accordingly
   useEffect(() => {
@@ -44,7 +42,7 @@ export default function Home() {
         startTransition(() => setData(formData))
       } 
     }
-  }, [searchParams, data.user_input])
+  }, [searchParams, data.user_input, setData])
 
   return (
     <div>
@@ -61,5 +59,13 @@ export default function Home() {
       </div>
       <Footer></Footer>
     </div>  
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense>
+      <HomeContent />
+    </Suspense>
   );
 }
