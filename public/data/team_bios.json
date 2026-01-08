@@ -17,13 +17,22 @@
     {
         "name": "Madeline Solis de Ovando",
         "role": "Designer",
+        "description": "Madeline is a Chilean-Canadian data engineer by day and digital designer by night. With a background in Visual Arts and Computer Science, Madeline works at the intersection of technology and design. She is passionate about creating compelling, user-centred digital experiences.",
         "website": "https://maddiesoliss.com/",
         "img": "/images/madeline.jpg"
     }, 
     {
         "name": "Sophia Chan",
         "role": "Developer",
+        "description": "Sophia is a Chinese-Canadian linguist and programmer. Trained in computational linguistics, she began her career as an engineer building educational technology products in collaboration with diverse cross-functional teams. Since then she has shifted her focus to interpreting and working on culture-related projects.",
         "website": "https://www.linkedin.com/in/sophia-mw-chan/",
         "img": "/images/sophia.PNG"
+    }, 
+    {
+        "name": "Fizza Ahmed",
+        "role": "Developer",
+        "description": "Fizza is a software engineer building cloud infrastructure to deploy, host, and maintain machine learning models. She enjoys learning about new advancements in machine learning, from new architectures, to new practices, to new ethical standards.",
+        "website": "https://fizzaahmed.github.io/",
+        "img": "/images/fizza.jpg"
     }
 ]
