@@ -9,8 +9,8 @@ export default function WordPage({ data }) {
 
   }
   else {
-    const input_roman = data.romanization
-      ? `(${data.romanization})`
+    const input_roman = data.processed_input?.romanization
+      ? `(${data.processed_input.romanization})`
       : "";
 
     const root_roman = data.root?.romanization
@@ -18,7 +18,7 @@ export default function WordPage({ data }) {
       : "";
     return (
       <div>
-        <h1 className="pt-2 text-xl text-default-black font-sans-tamil">{data.user_input}</h1>
+        <h1 className="pt-2 text-xl text-default-black font-sans-tamil">{data.processed_input.tamil}</h1>
         <h1 className="pb-4 text-xl text-default-black font-sans">{input_roman}</h1>
         <hr></hr>
         <Romanization data={data} />
