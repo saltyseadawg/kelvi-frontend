@@ -18,8 +18,8 @@ export default function Home() {
       <div className="header">
         <Navbar></Navbar>
         <div id="quick-start-info" className="pt-4 px-4 sm:px-11" style={{ display: (data.user_input === '' ? 'block' : 'none') }}>
-          <p>Type in Tamil or copy-paste a Tamil word to find its meaning, plus the meaning of each of its parts.</p>
-          <p>Try using Kelvi to figure out what மேய்ந்துவிடும் means!</p>
+          <p>Type in Tamil or romanization/English transliteration to find the meaning of a Tamil word, plus the meaning of each of its parts.</p>
+          <p>Try copy and pasting மேய்ந்துவிடும் into the searchbar to find its definition!</p>
         </div>
         <div className="pt-4 px-4"><Searchbar action={setData}></Searchbar></div>
       </div>
