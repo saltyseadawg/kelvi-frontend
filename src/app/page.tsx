@@ -29,7 +29,7 @@ export default async function Home({
           <p>Type in Tamil or romanization/English transliteration to find the meaning of a Tamil word, plus the meaning of each of its parts.</p>
           <p>Try copy and pasting மேய்ந்துவிடும் into the searchbar to find its definition!</p>
         </div>
-        <div className="pt-4 px-4"><Searchbar/></div>
+        <div className="pt-4 px-4"><Searchbar key={query}/></div>
       </div>
       <div className="min-h-screen p-8 pb-20 gap-16 sm:p-20 md:items-center md:justify-items-center">
         <WordPage data={data}></WordPage>

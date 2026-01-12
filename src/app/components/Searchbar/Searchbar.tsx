@@ -21,9 +21,10 @@ export default function Searchbar({
         ? `${pathname}?query=${encodeURIComponent(value)}`
         : pathname
     )
+
   }
     return (
-            <form className="flex items-center max-w-lg mx-auto" onSubmit={onSubmit}>
+            <form className="flex items-center max-w-lg mx-auto" key={initialValue} onSubmit={onSubmit}>
                 <label htmlFor="search-input" className="sr-only">Searchbar</label>
                 <div className="relative w-full">
                     <input type="text" id="search-input" name="user_input" value={value} onChange={(e) => setValue(e.target.value)} className="border border-gray-300 text-gray-900 text-sm font-sans rounded-lg focus:ring-[#5098DA] focus:border-[#5098DA] block w-full ps-5 p-2.5" placeholder="Search a Tamil word" required />
