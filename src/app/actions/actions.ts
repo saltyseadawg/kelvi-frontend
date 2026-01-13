@@ -1,6 +1,6 @@
 "use server";
 
-export async function submitSearch(previousState: string, formData: FormData){
+export async function submitSearch(previousState: { user_input: string }, formData: FormData){
     const query = formData.get("user_input") as string
     
     if (!query) {
