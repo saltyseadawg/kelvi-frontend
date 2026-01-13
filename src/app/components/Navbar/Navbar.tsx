@@ -17,7 +17,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navbar() {
+export default function Navbar({ onHomeClick }: { onHomeClick?: () => void }) {
   const pathname = usePathname()
 
   return (
@@ -50,6 +50,7 @@ export default function Navbar() {
                     <Link
                       key={item.name}
                       href={item.href}
+                      onClick={item.name === 'Home' && onHomeClick ? (e) => { e.preventDefault(); onHomeClick(); } : undefined}
                       aria-current={isCurrent ? 'page' : undefined}
                       className={classNames(
                         isCurrent
