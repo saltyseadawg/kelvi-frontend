@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import biosJson from '../../../public/data/team_bios.json'
 import Navbar from "../components/Navbar/Navbar"
@@ -22,10 +23,8 @@ export default function About() {
                 <p className="py-2">Kelvi was made possible through the generous support of the Audrey Wearn Language Prize, 
                     the Future Design School, and the contributors listed below. 
                     Our sincere thanks as well to everyone who took the time to user test Kelvi while it was in development.</p>
-                <p className="py-2">Kelvi is an open-source software, and you can find the source code for the website 
-                    <a href="https://github.com/saltyseadawg/kelvi-backend" className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">here</a>. 
-                    Read more about Kelvi <a href="https://aclanthology.org/2026.bea-1.21/" className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">here</a> 
-                    or check out our poster for ACL <a href="/Users/shankhalika/kelvi-frontend/src/app/about/BEA_Poster45_Kelvi.pdf" className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">here</a>!</p>
+                <p className="py-2">Kelvi is an open-source software, and you can find the source code for the website <a href="https://github.com/saltyseadawg/kelvi-backend" className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">here</a>. 
+                    Read more about Kelvi <a href="https://aclanthology.org/2026.bea-1.21/" className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">here</a> or check out our <Link href="/BEA_Poster45_Kelvi.pdf" rel="noopener noreferrer" target="_blank" className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600">poster for ACL</Link>!</p>
                 <h1 className="font-semibold font-serif text-xl text-default-black py-4">The Team</h1>
                 <div className="grid sm:grid-cols-2 gap-8 grid-cols-1">
                     {biosJson.map((person) => {
